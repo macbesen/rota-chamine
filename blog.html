@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blog da Corretora de Seguros Rota Chaminé. Notícias da SUSEP, mudanças na legislação, atualidades do mercado de seguros no Brasil e no mundo.">
+  <title>Blog | Corretora de Seguros Rota Chaminé</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --marrom: #3D2314;
+      --marrom-escuro: #2A180E;
+      --dourado: #C9A227;
+      --dourado-hover: #B08D1F;
+      --bege: #F9F5F0;
+      --branco: #FFFFFF;
+      --texto: #4A4A4A;
+      --texto-claro: #6B6B6B;
+      --sombra: 0 8px 30px rgba(61, 35, 20, 0.08);
+      --sombra-forte: 0 16px 48px rgba(61, 35, 20, 0.14);
+      --radius: 16px;
+      --transicao: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--texto);
+      background: var(--bege);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--marrom);
+      line-height: 1.25;
+    }
+    a { text-decoration: none; color: inherit; transition: var(--transicao); }
+    img { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.95rem 2.1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transicao);
+    }
+    .btn-primary {
+      background: var(--dourado);
+      color: var(--marrom);
+    }
+    .btn-primary:hover {
+      background: var(--dourado-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(201, 162, 39, 0.35);
+    }
+
+    /* HEADER */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(61, 35, 20, 0.06);
+      z-index: 1000;
+    }
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 82px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      background: transparent;
+    }
+    .logo img {
+      height: 72px;
+      width: auto;
+      max-width: 220px;
+      background: transparent;
+      mix-blend-mode: multiply;
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+    }
+    .nav-link {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--texto);
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--dourado);
+      transition: var(--transicao);
+    }
+    .nav-link:hover { color: var(--marrom); }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: var(--marrom); font-weight: 600; }
+    .nav-link.active::after { width: 100%; }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--marrom);
+      cursor: pointer;
+    }
+    .nav-cta-mobile { display: none; }
+    .header-cta-desktop { display: inline-flex; }
+
+    /* BLOG HERO */
+    .blog-hero {
+      padding: 8rem 0 3.5rem;
+      background: linear-gradient(135deg, var(--marrom) 0%, var(--marrom-escuro) 100%);
+      color: var(--branco);
+      text-align: center;
+    }
+    .blog-hero h1 {
+      color: var(--branco);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 0.8rem;
+    }
+    .blog-hero h1 span { color: var(--dourado); }
+    .blog-hero p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.1rem;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* BLOG LAYOUT */
+    .blog-section { padding: 4rem 0 5rem; }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .blog-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .blog-card {
+      background: var(--branco);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      transition: var(--transicao);
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--sombra-forte);
+    }
+    .blog-card-image {
+      height: 180px;
+      background: linear-gradient(135deg, rgba(61,35,20,0.9), rgba(201,162,39,0.7));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--branco);
+      font-size: 2.8rem;
+    }
+    .blog-card-body {
+      padding: 1.6rem 1.5rem 1.8rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--texto-claro);
+      margin-bottom: 0.7rem;
+      flex-wrap: wrap;
+    }
+    .blog-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .blog-meta i { color: var(--dourado); }
+    .blog-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.7rem;
+      line-height: 1.35;
+    }
+    .blog-card h3 a:hover { color: var(--dourado); }
+    .blog-card p {
+      color: var(--texto-claro);
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      flex: 1;
+    }
+    .blog-tag {
+      display: inline-block;
+      background: rgba(201,162,39,0.15);
+      color: var(--marrom);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.7rem;
+      border-radius: 50px;
+      margin-bottom: 0.8rem;
+    }
+    .read-more {
+      font-weight: 600;
+      color: var(--dourado);
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .read-more:hover { gap: 0.7rem; }
+
+    /* ARTICLE PAGE STYLE (expandable later) */
+    .article-content {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--branco);
+      padding: 2.5rem 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--sombra);
+    }
+    .article-content h2 {
+      font-size: 1.5rem;
+      margin: 1.8rem 0 0.8rem;
+    }
+    .article-content p {
+      margin-bottom: 1.1rem;
+      color: var(--texto-claro);
+      font-size: 1.05rem;
+    }
+
+    /* CTA */
+    .blog-cta {
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+      background: var(--branco);
+      border-radius: var(--radius);
+      box-shadow: var(--sombra);
+      margin-top: 3rem;
+    }
+    .blog-cta h2 { margin-bottom: 0.8rem; }
+    .blog-cta p {
+      color: var(--texto-claro);
+      margin-bottom: 1.5rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--marrom);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 4.5rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    @media (min-width: 768px) {
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+    }
+    .footer-brand img {
+      height: 60px;
+      width: auto;
+      margin-bottom: 1rem;
+      mix-blend-mode: screen;
+      filter: brightness(1.1);
+    }
+    .footer-brand p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 320px;
+    }
+    .footer h4 {
+      color: var(--dourado);
+      font-size: 1.05rem;
+      margin-bottom: 1.1rem;
+    }
+    .footer-links li { margin-bottom: 0.7rem; }
+    .footer-links a {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+    }
+    .footer-links a:hover { color: var(--dourado); }
+    .footer-bottom {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 58px;
+      height: 58px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      transition: var(--transicao);
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      color: #fff;
+    }
+
+    @media (max-width: 767px) {
+      .mobile-toggle { display: block; }
+      .nav-menu {
+        position: fixed;
+        top: 82px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 82px);
+        background: var(--branco);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        transition: var(--transicao);
+        box-shadow: var(--sombra-forte);
+      }
+      .nav-menu.active { left: 0; }
+      .header-cta-desktop { display: none !important; }
+      .nav-cta-mobile { display: list-item; margin-top: 0.5rem; }
+      .logo img { height: 58px; max-width: 170px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="logo-rota-chamine.png" alt="Rota Chaminé Corretora de Seguros">
+      </a>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="index.html#sobre" class="nav-link">Sobre Nós</a></li>
+          <li><a href="index.html#cotacao" class="nav-link">Cotação</a></li>
+          <li><a href="index.html#contato" class="nav-link">Contato</a></li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li class="nav-cta-mobile"><a href="index.html#cotacao" class="btn btn-primary">Cotação Grátis</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <a href="index.html#cotacao" class="btn btn-primary header-cta-desktop">Cotação Grátis</a>
+    </div>
+  </header>
+
+  <section class="blog-hero">
+    <div class="container">
+      <h1>Blog <span>Rota Chaminé</span></h1>
+      <p>Atualidades da SUSEP, mudanças na legislação e o que acontece no mercado de seguros no Brasil e no mundo. Informação clara para você proteger o que importa.</p>
+    </div>
+  </section>
+
+  <section class="blog-section">
+    <div class="container">
+      <div class="blog-grid">
+
+        <!-- Post 1 -->
+        <article class="blog-card">
+          <div class="blog-card-image"><i class="fa-solid fa-building-columns"></i></div>
+          <div class="blog-card-body">
+            <span class="blog-tag">SUSEP</span>
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> Jul 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 5 min</span>
+            </div>
+            <h3><a href="#post-susep">O que a SUSEP regula e por que isso protege você</a></h3>
+            <p>Entenda o papel da Superintendência de Seguros Privados e como o registro da corretora garante mais segurança na contratação do seu seguro.</p>
+            <a href="#post-susep" class="read-more">Ler mais <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="blog-card">
+          <div class="blog-card-image"><i class="fa-solid fa-scale-balanced"></i></div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Legislação</span>
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> Jul 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 6 min</span>
+            </div>
+            <h3><a href="#post-legislacao">Mudanças recentes na legislação de seguros no Brasil</a></h3>
+            <p>Resumo das principais atualizações normativas que impactam o consumidor, as seguradoras e as corretoras em 2025 e 2026.</p>
+            <a href="#post-legislacao" class="read-more">Ler mais <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="blog-card">
+          <div class="blog-card-image"><i class="fa-solid fa-car"></i></div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Seguro Auto</span>
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> Jun 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 4 min</span>
+            </div>
+            <h3><a href="#post-auto">Seguro auto: o que realmente importa na hora de cotar</a></h3>
+            <p>Franquia, cobertura de terceiros, assistência 24h e valor de mercado. Saiba o que analisar antes de fechar o seguro do seu carro.</p>
+            <a href="#post-auto" class="read-more">Ler mais <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Post 4 -->
+        <article class="blog-card">
+          <div class="blog-card-image"><i class="fa-solid fa-house"></i></div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Residencial</span>
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> Jun 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 5 min</span>
+            </div>
+            <h3><a href="#post-residencial">Seguro residencial: proteção além do roubo</a></h3>
+            <p>Incêndio, danos elétricos, responsabilidade civil e assistência. Por que o seguro da casa é um dos mais importantes e menos contratados.</p>
+            <a href="#post-residencial" class="read-more">Ler mais <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Post 5 -->
+        <article class="blog-card">
+          <div class="blog-card-image"><i class="fa-solid fa-heart-pulse"></i></div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Vida</span>
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> Mai 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 7 min</span>
+            </div>
+            <h3><a href="#post-vida">Seguro de vida: proteção para quem constrói com esforço</a></h3>
+            <p>Como o seguro de vida funciona, para quem é indicado e por que ele faz sentido especialmente para quem tem família e patrimônio em construção.</p>
+            <a href="#post-vida" class="read-more">Ler mais <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Post 6 -->
+        <article class="blog-card">
+          <div class="blog-card-image"><i class="fa-solid fa-globe"></i></div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Mercado</span>
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> Mai 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 5 min</span>
+            </div>
+            <h3><a href="#post-mercado">Tendências do mercado de seguros no Brasil e no mundo</a></h3>
+            <p>Digitalização, seguros sob demanda, ESG e o crescimento do seguro pet e de mobilidade. O que está mudando no setor.</p>
+            <a href="#post-mercado" class="read-more">Ler mais <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Conteúdo expandido dos posts (âncoras) -->
+      <div style="margin-top: 4rem; display: grid; gap: 2.5rem;">
+
+        <article id="post-susep" class="article-content">
+          <span class="blog-tag">SUSEP</span>
+          <h2>O que a SUSEP regula e por que isso protege você</h2>
+          <div class="blog-meta" style="margin-bottom: 1.2rem;">
+            <span><i class="fa-regular fa-calendar"></i> Julho 2026</span>
+          </div>
+          <p>A SUSEP (Superintendência de Seguros Privados) é o órgão do governo federal responsável por regular e fiscalizar o mercado de seguros, previdência complementar aberta, capitalização e resseguros no Brasil.</p>
+          <p>Toda corretora de seguros precisa estar registrada na SUSEP para atuar de forma legal. A Rota Chaminé possui o registro <strong>SUSEP 202052711</strong>, o que significa que você contrata com uma empresa autorizada e supervisionada.</p>
+          <p>Na prática, isso garante que as apólices sigam regras claras, que as seguradoras tenham reservas financeiras adequadas e que o consumidor tenha canais oficiais de reclamação e proteção.</p>
+          <p>Sempre confira o número SUSEP da corretora antes de fechar qualquer seguro. É um dos primeiros sinais de seriedade e transparência.</p>
+        </article>
+
+        <article id="post-legislacao" class="article-content">
+          <span class="blog-tag">Legislação</span>
+          <h2>Mudanças recentes na legislação de seguros no Brasil</h2>
+          <div class="blog-meta" style="margin-bottom: 1.2rem;">
+            <span><i class="fa-regular fa-calendar"></i> Julho 2026</span>
+          </div>
+          <p>O mercado de seguros brasileiro passa por atualizações frequentes de normas da SUSEP e de leis que afetam o consumidor. Entre os temas mais relevantes dos últimos anos estão:</p>
+          <p>• Maior transparência nas informações pré-contratuais;<br>
+          • Regras mais claras sobre cancelamento e portabilidade;<br>
+          • Fortalecimento da proteção de dados (LGPD) no tratamento de informações de segurados;<br>
+          • Incentivo a produtos mais simples e digitais.</p>
+          <p>Acompanhar essas mudanças ajuda o consumidor a exigir seus direitos e a escolher coberturas adequadas. Na dúvida, converse com a sua corretora — o papel dela é traduzir a linguagem técnica e orientá-lo com clareza.</p>
+        </article>
+
+        <article id="post-auto" class="article-content">
+          <span class="blog-tag">Seguro Auto</span>
+          <h2>Seguro auto: o que realmente importa na hora de cotar</h2>
+          <div class="blog-meta" style="margin-bottom: 1.2rem;">
+            <span><i class="fa-regular fa-calendar"></i> Junho 2026</span>
+          </div>
+          <p>Na hora de cotar o seguro do carro, o preço é importante, mas não deve ser o único critério. Avalie:</p>
+          <p><strong>Coberturas:</strong> colisão, roubo/furto, incêndio, danos a terceiros (responsabilidade civil), vidros e assistência 24 horas.</p>
+          <p><strong>Franquia:</strong> valor que você paga em caso de sinistro parcial. Franquia mais baixa costuma encarecer o prêmio.</p>
+          <p><strong>Perfil:</strong> idade, tempo de habilitação, uso do veículo e local de pernoite influenciam o valor.</p>
+          <p>Uma boa cotação compara várias seguradoras com o mesmo perfil e as mesmas coberturas. É exatamente isso que a Rota Chaminé faz por você.</p>
+        </article>
+
+        <article id="post-residencial" class="article-content">
+          <span class="blog-tag">Residencial</span>
+          <h2>Seguro residencial: proteção além do roubo</h2>
+          <div class="blog-meta" style="margin-bottom: 1.2rem;">
+            <span><i class="fa-regular fa-calendar"></i> Junho 2026</span>
+          </div>
+          <p>Muita gente associa o seguro residencial apenas a roubo. Na verdade, as coberturas mais acionadas costumam ser outras: danos elétricos, incêndio, vendaval, vazamentos e responsabilidade civil (quando alguém se acidenta no imóvel).</p>
+          <p>Há também assistências úteis no dia a dia: chaveiro, eletricista, encanador e limpeza de caixas d’água, por exemplo.</p>
+          <p>Para apartamentos e casas, o seguro residencial é uma das formas mais acessíveis de proteger o patrimônio construído com esforço. Vale a pena cotar.</p>
+        </article>
+
+        <article id="post-vida" class="article-content">
+          <span class="blog-tag">Vida</span>
+          <h2>Seguro de vida: proteção para quem constrói com esforço</h2>
+          <div class="blog-meta" style="margin-bottom: 1.2rem;">
+            <span><i class="fa-regular fa-calendar"></i> Maio 2026</span>
+          </div>
+          <p>O seguro de vida não é só para quem “tem muito dinheiro”. Ele faz especial sentido para quem tem dependentes, financiamentos (casa, carro) ou é o principal provedor da família.</p>
+          <p>Existem modalidades de cobertura por morte, invalidez, doenças graves e até assistência funeral. O valor do benefício e o custo mensal variam conforme idade, saúde e capital segurado.</p>
+          <p>Na Rota Chaminé, tratamos o seguro de vida com a mesma seriedade com que cuidamos de patrimônios construídos gota a gota: com clareza, respeito e orientação honesta.</p>
+        </article>
+
+        <article id="post-mercado" class="article-content">
+          <span class="blog-tag">Mercado</span>
+          <h2>Tendências do mercado de seguros no Brasil e no mundo</h2>
+          <div class="blog-meta" style="margin-bottom: 1.2rem;">
+            <span><i class="fa-regular fa-calendar"></i> Maio 2026</span>
+          </div>
+          <p>O setor de seguros está em transformação. Entre as tendências mais fortes:</p>
+          <p>• <strong>Digitalização:</strong> cotação e contratação online cada vez mais comuns;<br>
+          • <strong>Seguros sob demanda:</strong> proteção por períodos curtos (viagem, eventos);<br>
+          • <strong>ESG:</strong> produtos ligados a sustentabilidade e responsabilidade social;<br>
+          • <strong>Novos ramos:</strong> crescimento de seguro pet, bike, celular e mobilidade.</p>
+          <p>Mesmo com tanta tecnologia, o papel da corretora continua essencial: interpretar o risco, comparar opções e estar ao lado do cliente quando ele mais precisa.</p>
+        </article>
+
+      </div>
+
+      <div class="blog-cta">
+        <h2>Quer proteger o que você construiu?</h2>
+        <p>Fale com a Rota Chaminé. Cotação gratuita, atendimento humano e as melhores opções do mercado.</p>
+        <a href="index.html#cotacao" class="btn btn-primary">Solicitar Cotação</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="logo-rota-chamine.png" alt="Rota Chaminé">
+          <p>Corretora de Seguros Rota Chaminé – Protegendo quem constrói a vida com o próprio esforço.</p>
+          <p style="margin-top: 0.8rem; font-size: 0.85rem;">SUSEP 202052711</p>
+        </div>
+        <div>
+          <h4>Links Rápidos</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#sobre">Sobre Nós</a></li>
+            <li><a href="index.html#cotacao">Cotação</a></li>
+            <li><a href="index.html#contato">Contato</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contato</h4>
+          <ul class="footer-links">
+            <li><i class="fa-brands fa-whatsapp" style="margin-right: 0.4rem;"></i> (47) 9953-6461</li>
+            <li><i class="fa-regular fa-envelope" style="margin-right: 0.4rem;"></i> contato@rotachamine.com.br</li>
+            <li><i class="fa-solid fa-location-dot" style="margin-right: 0.4rem;"></i> Joinville/SC</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Corretora de Seguros Rota Chaminé. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/554799536461?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        const icon = mobileToggle.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+      });
+    }
+  </script>
+</body>
+</html>

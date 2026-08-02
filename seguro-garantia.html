@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seguro Garantia para Empresas | Rota Chaminé Corretora de Seguros</title>
+  <meta name="description" content="Seguro Garantia com a Rota Chaminé. Emissão rápida, sem comprometer limite bancário. Licitações, contratos, judicial e mais. Cotação gratuita em Joinville e todo o Brasil.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Cores extraídas da identidade Rota Chaminé */
+      --primary: #3d1f0a;          /* Marrom escuro do logo */
+      --primary-light: #5c3a1a;
+      --accent: #b8860b;           /* Dourado / ouro do logo */
+      --accent-hover: #9a7209;
+      --gold-light: #d4a84b;
+      --success: #b8860b;          /* CTA principal em dourado */
+      --success-hover: #9a7209;
+      --bg: #faf8f5;               /* Fundo quente suave */
+      --card: #ffffff;
+      --text: #2c1810;
+      --muted: #6b5b4f;
+      --border: #e8e0d5;
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgb(61 31 10 / 0.07), 0 2px 4px -2px rgb(61 31 10 / 0.05);
+      --shadow-lg: 0 20px 25px -5px rgb(61 31 10 / 0.1), 0 8px 10px -6px rgb(61 31 10 / 0.06);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    /* ========== HEADER ========== */
+    .header {
+      background: #ffffff;
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 4px rgb(61 31 10 / 0.1);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-phone {
+      color: var(--muted);
+      font-size: 0.875rem;
+      text-decoration: none;
+      display: none;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-success {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-success:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.4);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    .btn-lg {
+      padding: 16px 28px;
+      font-size: 1.05rem;
+      border-radius: 10px;
+    }
+
+    .btn-block { width: 100%; }
+
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(145deg, #3d1f0a 0%, #5c3a1a 45%, #3d1f0a 100%);
+      color: #fff;
+      padding: 64px 20px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -15%;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(184,134,11,0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(184,134,11,0.25);
+      color: var(--gold-light);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(212,168,75,0.35);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: 1.08rem;
+      color: #e8d9c8;
+      margin-bottom: 28px;
+      max-width: 520px;
+    }
+
+    .hero-benefits {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .hero-benefits li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: #f0e6d8;
+      margin-bottom: 10px;
+    }
+
+    .hero-benefits li svg {
+      flex-shrink: 0;
+      color: var(--gold-light);
+    }
+
+    /* Form Card */
+    .form-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow-lg);
+      color: var(--text);
+    }
+
+    .form-card h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--primary);
+    }
+
+    .form-card .form-sub {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      color: var(--text);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(184,134,11,0.18);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .success-box {
+      display: none;
+      text-align: center;
+      padding: 32px 16px;
+    }
+    .success-box.show { display: block; }
+    .success-box .icon {
+      width: 56px;
+      height: 56px;
+      background: #fef3c7;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      color: var(--accent);
+      font-size: 24px;
+    }
+
+    /* ========== SECTIONS ========== */
+    .section {
+      padding: 72px 20px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .section-header p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* Benefits Grid */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .benefit-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .benefit-icon {
+      width: 48px;
+      height: 48px;
+      background: #fef3c7;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      color: var(--accent);
+    }
+
+    .benefit-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .benefit-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Modalidades */
+    .mod-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .mod-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .mod-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .mod-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    /* How it works */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin: 0 auto 16px;
+    }
+
+    .step h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--primary);
+    }
+
+    .step p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* Stats */
+    .stats {
+      background: var(--primary);
+      color: #fff;
+      padding: 56px 20px;
+    }
+
+    .stats-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+      color: var(--gold-light);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #c4b5a5;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 18px 20px;
+      background: none;
+      border: none;
+      text-align: left;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: inherit;
+      color: var(--text);
+    }
+
+    .faq-question:hover { background: #faf6f0; }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 20px 18px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    .faq-icon {
+      font-size: 1.3rem;
+      color: var(--accent);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    /* CTA Final */
+    .cta-final {
+      background: linear-gradient(145deg, #3d1f0a 0%, #5c3a1a 100%);
+      color: #fff;
+      padding: 64px 20px;
+      text-align: center;
+    }
+
+    .cta-final h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .cta-final p {
+      color: #c4b5a5;
+      margin-bottom: 28px;
+      font-size: 1.05rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: #2a1508;
+      color: #a89080;
+      padding: 36px 20px;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer strong {
+      color: #d4c4b0;
+    }
+
+    .footer a {
+      color: #d4c4b0;
+      text-decoration: none;
+    }
+
+    .footer a:hover { color: #fff; }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .benefits-grid,
+      .mod-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+      .stats-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 48px 16px 56px; }
+      .section { padding: 56px 16px; }
+      .benefits-grid,
+      .mod-grid,
+      .steps,
+      .stats-inner {
+        grid-template-columns: 1fr;
+      }
+      .form-row { grid-template-columns: 1fr; }
+      .header-phone { display: block; }
+      .logo { height: 44px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="header-inner">
+      <img src="logo-rota-chamine.png" alt="Rota Chaminé Corretora de Seguros" class="logo">
+      <div class="header-cta">
+        <a href="tel:+554799536461" class="header-phone">(47) 9953-6461</a>
+        <a href="https://wa.me/554799536461?text=Olá!%20Gostaria%20de%20uma%20cotação%20de%20Seguro%20Garantia." 
+           class="btn btn-success" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Especialistas em Seguro Garantia · SUSEP 202052711
+        </div>
+        <h1>Seguro Garantia para quem constrói.<br><span>Rápido, digital e sem travar seu crédito.</span></h1>
+        <p class="hero-sub">
+          Participe de licitações, cumpra contratos e liberte capital de giro. 
+          Cotação gratuita com as principais seguradoras do mercado — Joinville e todo o Brasil.
+        </p>
+        <ul class="hero-benefits">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Não compromete limite bancário nem capital de giro
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Taxas competitivas a partir de 0,5% ao ano
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Emissão 100% digital — apólice no mesmo dia
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Aceito em órgãos públicos e empresas privadas
+          </li>
+        </ul>
+      </div>
+
+      <!-- Formulário de cotação -->
+      <div class="form-card" id="formCard">
+        <div id="formContent">
+          <h2>Solicite sua cotação</h2>
+          <p class="form-sub">Preencha e receba propostas das melhores seguradoras. Sem compromisso.</p>
+          
+          <form id="leadForm">
+            <div class="form-group">
+              <label for="nome">Nome completo *</label>
+              <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+            </div>
+
+            <div class="form-group">
+              <label for="empresa">Empresa / Razão Social *</label>
+              <input type="text" id="empresa" name="empresa" required placeholder="Nome da empresa">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cnpj">CNPJ</label>
+                <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00">
+              </div>
+              <div class="form-group">
+                <label for="telefone">WhatsApp *</label>
+                <input type="tel" id="telefone" name="telefone" required placeholder="(47) 99999-9999">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail corporativo</label>
+              <input type="email" id="email" name="email" placeholder="voce@empresa.com.br">
+            </div>
+
+            <div class="form-group">
+              <label for="modalidade">Tipo de garantia *</label>
+              <select id="modalidade" name="modalidade" required>
+                <option value="" disabled selected>Selecione</option>
+                <option value="licitante">Garantia do Licitante (Bid Bond)</option>
+                <option value="contratual">Garantia Contratual / Performance</option>
+                <option value="judicial">Garantia Judicial</option>
+                <option value="adiantamento">Adiantamento de Pagamento</option>
+                <option value="aduaneira">Garantia Aduaneira</option>
+                <option value="financeira">Garantia Financeira</option>
+                <option value="outro">Outro / Não sei</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="valor">Valor aproximado a garantir (R$)</label>
+              <input type="text" id="valor" name="valor" placeholder="Ex: 500.000">
+            </div>
+
+            <button type="submit" class="btn btn-success btn-lg btn-block">
+              Quero minha cotação agora
+            </button>
+          </form>
+          <p class="form-note">Seus dados estão protegidos • Sem spam • Resposta em até 2h úteis</p>
+        </div>
+
+        <div class="success-box" id="successBox">
+          <div class="icon">✓</div>
+          <h3 style="margin-bottom:8px;font-size:1.15rem;">Cotação solicitada!</h3>
+          <p style="color:var(--muted);font-size:0.9rem;">Em breve um especialista da Rota Chaminé entrará em contato com as melhores propostas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BENEFÍCIOS ========== -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Por que empresas escolhem o Seguro Garantia</h2>
+        <p>A alternativa mais inteligente à fiança bancária e ao depósito em dinheiro.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+          </div>
+          <h3>Não trava seu crédito</h3>
+          <p>Diferente da fiança bancária, o Seguro Garantia não compromete linhas de crédito nem capital de giro da empresa.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3>Emissão rápida</h3>
+          <p>Processo 100% digital. Em muitos casos a apólice é emitida no mesmo dia, sem burocracia excessiva.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <h3>Custo competitivo</h3>
+          <p>Taxas a partir de 0,5% a 3% do valor garantido, bem abaixo do custo de oportunidade de imobilizar capital.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          </div>
+          <h3>Aceitação ampla</h3>
+          <p>Aceito por órgãos públicos, tribunais e empresas privadas em todo o Brasil. Conformidade total com a SUSEP.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Atendimento humanizado</h3>
+          <p>10 anos protegendo quem constrói. Time técnico que analisa o contrato e encontra a melhor estrutura para o seu caso.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Segurança jurídica</h3>
+          <p>Apólices emitidas por seguradoras autorizadas pela SUSEP, com cobertura clara e transparente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MODALIDADES ========== -->
+  <section class="section" style="background:#fff; border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Modalidades de Seguro Garantia</h2>
+        <p>Atendemos todas as principais necessidades de empresas e órgãos públicos.</p>
+      </div>
+      <div class="mod-grid">
+        <div class="mod-card">
+          <h3>Garantia do Licitante</h3>
+          <p>Garante que o vencedor da licitação manterá a proposta e assinará o contrato nas condições do edital.</p>
+        </div>
+        <div class="mod-card">
+          <h3>Garantia Contratual</h3>
+          <p>Assegura o fiel cumprimento de obrigações em contratos de construção, fornecimento ou prestação de serviços.</p>
+        </div>
+        <div class="mod-card">
+          <h3>Garantia Judicial</h3>
+          <p>Substitui depósito judicial, penhora e fiança bancária em processos cíveis, trabalhistas e fiscais.</p>
+        </div>
+        <div class="mod-card">
+          <h3>Adiantamento de Pagamento</h3>
+          <p>Garante a correta aplicação dos recursos adiantados pelo contratante ao tomador.</p>
+        </div>
+        <div class="mod-card">
+          <h3>Garantia Aduaneira</h3>
+          <p>Garante o pagamento de tributos em regimes especiais de admissão temporária e outros processos aduaneiros.</p>
+        </div>
+        <div class="mod-card">
+          <h3>Garantia Financeira</h3>
+          <p>Cobre obrigações financeiras específicas, liberando recursos e preservando a liquidez da empresa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMO FUNCIONA ========== -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Como funciona</h2>
+        <p>Do pedido à apólice em poucos passos.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Solicite a cotação</h3>
+          <p>Preencha o formulário com os dados básicos da empresa e do contrato/edital.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Análise técnica</h3>
+          <p>Nossa equipe e as seguradoras analisam o risco e preparam as propostas.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Escolha a melhor</h3>
+          <p>Você recebe as opções lado a lado e escolhe a mais vantajosa.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3>Emissão digital</h3>
+          <p>Apólice emitida e enviada por e-mail, pronta para apresentação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STATS ========== -->
+  <section class="stats">
+    <div class="stats-inner">
+      <div>
+        <div class="stat-value">10 anos</div>
+        <div class="stat-label">Protegendo quem constrói</div>
+      </div>
+      <div>
+        <div class="stat-value">20+</div>
+        <div class="stat-label">Seguradoras parceiras</div>
+      </div>
+      <div>
+        <div class="stat-value">Joinville</div>
+        <div class="stat-label">e todo o Brasil</div>
+      </div>
+      <div>
+        <div class="stat-value">SUSEP</div>
+        <div class="stat-label">202052711</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Perguntas frequentes</h2>
+        <p>Tire suas dúvidas antes de solicitar a cotação.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            O que é Seguro Garantia?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              É um seguro que garante o cumprimento de obrigações assumidas por uma empresa (tomador) perante outra parte (segurado), seja em contratos, licitações ou processos judiciais. Caso haja descumprimento, a seguradora indeniza o segurado conforme a apólice.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Qual a diferença entre Seguro Garantia e Fiança Bancária?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              A fiança bancária compromete o limite de crédito da empresa no banco. O Seguro Garantia não utiliza esse limite, preserva o capital de giro e costuma ter custo final mais vantajoso, além de emissão mais ágil.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Quanto custa o Seguro Garantia?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              O prêmio varia conforme o valor garantido, prazo, modalidade e análise de risco do tomador. Em geral fica entre 0,5% e 3% ao ano do valor da garantia. Valores menores (licitações menores) podem ter prêmio a partir de R$ 150–300.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Quais documentos são necessários?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Normalmente: dados cadastrais e financeiros do tomador (balanço, DRE ou demonstrativos), cópia do contrato/edital/processo judicial e dados do segurado. Nossa equipe orienta exatamente o que é preciso em cada caso.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Em quanto tempo a apólice é emitida?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Após aprovação da análise de risco e envio da documentação completa, a emissão digital pode ocorrer no mesmo dia ou em até 48 horas úteis, dependendo da modalidade e da seguradora.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            O Seguro Garantia é aceito em licitações públicas?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sim. É amplamente aceito por órgãos públicos em todas as esferas (federal, estadual e municipal) e está previsto na legislação de licitações como uma das formas de garantia.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA FINAL ========== -->
+  <section class="cta-final">
+    <h2>Pronto para liberar seu capital de giro?</h2>
+    <p>Solicite sua cotação agora e receba propostas das principais seguradoras do mercado.</p>
+    <div class="cta-buttons">
+      <a href="#formCard" class="btn btn-success btn-lg" onclick="document.getElementById('formCard').scrollIntoView({behavior:'smooth'})">
+        Solicitar cotação grátis
+      </a>
+      <a href="https://wa.me/554799536461?text=Olá!%20Gostaria%20de%20falar%20sobre%20Seguro%20Garantia." 
+         class="btn btn-outline btn-lg" target="_blank" rel="noopener">
+        Falar no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>
+        <strong>Rota Chaminé Corretora de Seguros Ltda.</strong><br>
+        CNPJ: 26.271.537/0001-80 &nbsp;|&nbsp; SUSEP: 202052711<br>
+        Rua Prefeito Aristides Largura, 145, Sala A – América – Joinville/SC – CEP 89.204-145<br>
+        WhatsApp: <a href="https://wa.me/554799536461">(47) 9953-6461</a>
+      </p>
+      <p style="margin-top:14px;">
+        © 2026 Rota Chaminé Corretora de Seguros. Todos os direitos reservados.<br>
+        <span style="font-size:0.75rem;">Este site não pertence à SUSEP. As informações são de responsabilidade da corretora. Consulte sempre as condições gerais da apólice.</span>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ accordion
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    }
+
+    // Form submit (simulação – substitua pelo endpoint real)
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const data = {
+        nome: document.getElementById('nome').value.trim(),
+        empresa: document.getElementById('empresa').value.trim(),
+        cnpj: document.getElementById('cnpj').value.trim(),
+        telefone: document.getElementById('telefone').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        modalidade: document.getElementById('modalidade').value,
+        valor: document.getElementById('valor').value.trim()
+      };
+
+      console.log('Lead Seguro Garantia - Rota Chaminé:', data);
+
+      // Integração com API / CRM / webhook:
+      // fetch('https://seu-endpoint.com/leads', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(data)
+      // });
+
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('successBox').classList.add('show');
+    });
+
+    // Máscara simples de telefone
+    document.getElementById('telefone').addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) {
+        e.target.value = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+      } else if (v.length > 2) {
+        e.target.value = `(${v.slice(0,2)}) ${v.slice(2)}`;
+      } else {
+        e.target.value = v;
+      }
+    });
+  </script>
+</body>
+</html>

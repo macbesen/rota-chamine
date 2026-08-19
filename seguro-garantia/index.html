@@ -60,7 +60,7 @@
     }
 
     .logo {
-      height: 52px;
+      height: 80px;
       width: auto;
       object-fit: contain;
     }
@@ -963,7 +963,7 @@
         <strong>Rota Chaminé Corretora de Seguros Ltda.</strong><br>
         CNPJ: 26.271.537/0001-80 &nbsp;|&nbsp; SUSEP: 202052711<br>
         Rua Prefeito Aristides Largura, 145, Sala A – América – Joinville/SC – CEP 89.204-145<br>
-        WhatsApp: <a href="https://wa.me/554799536461">(47) 9953-6461</a>
+        WhatsApp: <a href="https://wa.me/5547999536461">(47) 99953-6461</a>
       </p>
       <p style="margin-top:14px;">
         © 2026 Rota Chaminé Corretora de Seguros. Todos os direitos reservados.<br>
@@ -1021,5 +1021,48 @@
       }
     });
   </script>
+
+<!-- WhatsApp Flutuante -->
+  <a href="https://wa.me/5547999536461?text=Olá!%20Gostaria%20de%20uma%20cotação%20de%20Seguro%20Garantia."
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener"
+     aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff">
+      <path d="M16.01 2.02C8.3 2.02 2.02 8.3 2.02 16.01c0 2.48.65 4.8 1.79 6.82L2 30l7.35-1.92A13.9 13.9 0 0 0 16.01 30c7.71 0 13.99-6.28 13.99-13.99S23.72 2.02 16.01 2.02zm0 25.5a11.5 11.5 0 0 1-5.86-1.6l-.42-.25-4.36 1.14 1.16-4.25-.27-.44a11.5 11.5 0 1 1 9.75 5.4zm6.3-8.6c-.35-.17-2.05-1.01-2.37-1.13-.32-.12-.55-.17-.78.17-.23.35-.9 1.13-1.1 1.36-.2.23-.4.26-.75.09-.35-.17-1.48-.55-2.82-1.74-1.04-.93-1.74-2.08-1.95-2.43-.2-.35-.02-.54.15-.71.16-.16.35-.4.52-.6.17-.2.23-.35.35-.58.12-.23.06-.43-.03-.6-.09-.17-.78-1.88-1.07-2.58-.28-.67-.57-.58-.78-.59h-.67c-.23 0-.6.09-.91.43-.32.35-1.2 1.17-1.2 2.86s1.23 3.32 1.4 3.55c.17.23 2.42 3.7 5.86 5.19.82.35 1.46.56 1.96.72.82.26 1.57.22 2.16.13.66-.1 2.05-.84 2.34-1.65.29-.81.29-1.5.2-1.65-.09-.14-.32-.23-.67-.4z"/>
+    </svg>
+  </a>
+
+  <style>
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.45);
+      z-index: 9999;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.55);
+    }
+    @media (max-width: 600px) {
+      .whatsapp-float {
+        bottom: 18px;
+        right: 18px;
+        width: 54px;
+        height: 54px;
+      }
+    }
+  </style>
+
 </body>
 </html>

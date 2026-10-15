@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Seguro de Vida Rota Chaminé: Proteção para quem você ama. Cuidamos do seu presente para você viver cada momento com quem mais importa.">
+    <title>Seguro de Vida | Rota Chaminé - Protegendo Momentos que Importam</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #3D1F0E;
+            --primary-light: #5C2E15;
+            --accent: #B8860B;
+            --accent-hover: #9A7009;
+            --text-dark: #1E293B;
+            --text-gray: #64748B;
+            --bg-light: #F8FAFC;
+            --white: #FFFFFF;
+            --warm-bg: #FFF8F0;
+            --radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-dark); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background-color: var(--accent);
+            color: var(--white);
+            font-weight: 700;
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        .btn:hover { background-color: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(184,134,11,0.3); }
+        .btn-large { font-size: 1.2rem; padding: 18px 40px; }
+        .btn-full { width: 100%; }
+
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        .section-title h2 { 
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem; 
+            color: var(--primary); 
+            margin-bottom: 1rem; 
+            font-weight: 700; 
+        }
+        .section-title p { color: var(--text-gray); max-width: 700px; margin: 0 auto; font-size: 1.15rem; }
+
+        section { padding: 100px 0; }
+
+        /* HEADER */
+        header { background-color: var(--white); box-shadow: var(--shadow); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo img { height: 55px; width: auto; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { font-weight: 600; color: var(--text-dark); transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
+
+        /* HERO SECTION - LAYOUT RESPONSIVO CORRIGIDO */
+        .hero {
+            background: linear-gradient(135deg, rgba(61, 31, 14, 0.7) 0%, rgba(92, 46, 21, 0.6) 100%), 
+                        url('https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            position: relative;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 60px;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .hero-content {
+            color: var(--white);
+            z-index: 2;
+        }
+        
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-content > p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .hero-bullets {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px 30px;
+            border-radius: var(--radius);
+            margin-bottom: 2.5rem;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .hero-bullets li { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            margin-bottom: 12px; 
+            font-size: 1.1rem; 
+            font-weight: 500; 
+        }
+        .hero-bullets li:last-child { margin-bottom: 0; }
+        .hero-bullets li i { color: var(--accent); font-size: 1.3rem; }
+
+        /* FORMULÁRIO - SEM POSITION ABSOLUTE */
+        .hero-form-wrapper {
+            width: 100%;
+            z-index: 10;
+        }
+        
+        .hero-form {
+            background: var(--white);
+            padding: 35px;
+            border-radius: var(--radius);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .hero-form h3 { 
+            color: var(--primary); 
+            font-size: 1.5rem; 
+            margin-bottom: 8px; 
+            font-weight: 700; 
+        }
+        .hero-form > p { color: var(--text-gray); font-size: 0.95rem; margin-bottom: 25px; }
+        
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.9rem; color: var(--text-dark); }
+        .form-group input, .form-group select {
+            width: 100%; padding: 13px 15px; border: 2px solid #E2E8F0; border-radius: var(--radius);
+            font-family: inherit; font-size: 1rem; transition: all 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus { 
+            outline: none; 
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(184,134,11,0.1);
+        }
+        
+        .form-note { 
+            font-size: 0.8rem; 
+            color: var(--text-gray); 
+            text-align: center; 
+            margin-top: 15px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* SEÇÃO EMOCIONAL */
+        .emotional-section { background-color: var(--white); }
+        .emotional-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .emotional-image {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .emotional-image img { width: 100%; height: 500px; object-fit: cover; }
+        .emotional-image::before {
+            content: ''; position: absolute; top: -20px; left: -20px; width: 100%; height: 100%;
+            border: 4px solid var(--accent); border-radius: var(--radius); z-index: -1;
+        }
+        .emotional-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .emotional-content > p { font-size: 1.15rem; color: var(--text-gray); margin-bottom: 2rem; line-height: 1.8; }
+        .emotional-benefits { margin-top: 2rem; }
+        .emotional-benefits li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 18px; }
+        .emotional-benefits li i {
+            background-color: var(--accent); color: var(--white); width: 28px; height: 28px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; flex-shrink: 0; margin-top: 3px;
+        }
+        .emotional-benefits li span { color: var(--text-dark); font-weight: 500; }
+
+        .emotional-section.reverse .emotional-grid { direction: rtl; }
+        .emotional-section.reverse .emotional-grid > * { direction: ltr; }
+
+        /* GALERIA DE MOMENTOS */
+        .moments-gallery { background-color: var(--warm-bg); padding: 100px 0; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 50px; }
+        .gallery-item {
+            position: relative; border-radius: var(--radius); overflow: hidden;
+            aspect-ratio: 1; box-shadow: var(--shadow); transition: transform 0.3s;
+        }
+        .gallery-item:hover { transform: translateY(-5px); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+        .gallery-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(61,31,14,0.9), transparent);
+            padding: 20px; color: var(--white); opacity: 0; transition: opacity 0.3s;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay p { font-weight: 600; font-size: 0.95rem; }
+
+        /* CARDS DE PROTEÇÃO */
+        .protection-cards { background-color: var(--white); }
+        .protection-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+        .protection-card {
+            position: relative; border-radius: var(--radius); overflow: hidden;
+            height: 450px; box-shadow: var(--shadow);
+        }
+        .protection-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .protection-card:hover img { transform: scale(1.1); }
+        .protection-content {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(61,31,14,0.95), transparent);
+            padding: 30px; color: var(--white);
+        }
+        .protection-content h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 12px; }
+        .protection-content p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 20px; }
+        .protection-content a { color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+        .protection-content a:hover { color: var(--white); }
+
+        /* POR QUE ESCOLHER */
+        .por-que { background-color: var(--bg-light); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .feature-card {
+            background: var(--white); padding: 35px; border-radius: var(--radius);
+            box-shadow: var(--shadow); border-top: 4px solid var(--accent); transition: transform 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .feature-card h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 12px; font-weight: 700; }
+        .feature-card p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.7; }
+
+        /* DEPOIMENTOS */
+        .depoimentos { background-color: var(--warm-bg); }
+        .depoimentos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+        .depoimento-card { background: var(--white); padding: 35px; border-radius: var(--radius); box-shadow: var(--shadow); }
+        .depoimento-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .depoimento-avatar { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+        .depoimento-info h4 { color: var(--primary); font-weight: 700; margin-bottom: 5px; }
+        .depoimento-info p { color: var(--text-gray); font-size: 0.9rem; }
+        .depoimento-text {
+            color: var(--text-dark); font-style: italic; line-height: 1.7;
+            position: relative; padding-left: 20px; border-left: 3px solid var(--accent);
+        }
+
+        /* COMO FUNCIONA */
+        .como-funciona { 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); 
+            color: var(--white); 
+        }
+        .como-funciona .section-title h2 { color: var(--white); }
+        .como-funciona .section-title p { color: #CBD5E1; }
+        .passos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: center; }
+        .passo-numero {
+            width: 70px; height: 70px; background-color: var(--accent); color: var(--white);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; font-weight: 800; margin: 0 auto 20px; border: 4px solid rgba(255,255,255,0.2);
+        }
+        .passo h3 { margin-bottom: 12px; font-size: 1.2rem; }
+        .passo p { opacity: 0.9; font-size: 0.95rem; }
+
+        /* FAQ */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 2px solid #E2E8F0; margin-bottom: 10px; }
+        .faq-question {
+            width: 100%; text-align: left; background: none; border: none; padding: 25px 0;
+            font-size: 1.1rem; font-weight: 600; color: var(--primary); cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .faq-question:hover { color: var(--accent); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: var(--text-gray); }
+        .faq-answer p { padding-bottom: 25px; line-height: 1.8; }
+        .faq-item.active .faq-answer { max-height: 300px; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+
+        /* CTA FINAL */
+        .cta-final {
+            background: linear-gradient(135deg, rgba(61, 31, 14, 0.95) 0%, rgba(92, 46, 21, 0.9) 100%),
+                        url('https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--white); text-align: center; padding: 100px 0;
+        }
+        .cta-final h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 1.5rem; }
+        .cta-final > p { font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        /* FOOTER */
+        footer { background-color: #1A0F08; color: #94A3B8; padding: 60px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: var(--white); margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a:hover { color: var(--accent); }
+        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid #2D1810; font-size: 0.9rem; }
+
+        /* WHATSAPP */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white;
+            width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999; transition: transform 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        /* ============================================
+           BREAKPOINTS RESPONSIVOS CORRIGIDOS
+           ============================================ */
+        
+        /* Desktop Grande (> 1200px) */
+        @media (min-width: 1200px) {
+            .hero-grid {
+                gap: 80px;
+            }
+        }
+        
+        /* Desktop Médio (1024px - 1199px) */
+        @media (max-width: 1199px) and (min-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr 380px;
+                gap: 40px;
+            }
+            .hero-content h1 { font-size: 3rem; }
+        }
+        
+        /* Tablet Grande (900px - 1023px) */
+        @media (max-width: 1023px) and (min-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr 360px;
+                gap: 40px;
+            }
+            .hero-content h1 { font-size: 2.8rem; }
+            .emotional-grid { gap: 50px; }
+        }
+        
+        /* Tablet (768px - 899px) - FORMULÁRIO EMPILHADO */
+        @media (max-width: 899px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .hero-content { text-align: center; }
+            .hero-bullets { 
+                display: inline-block; 
+                text-align: left; 
+                max-width: 500px;
+            }
+            .hero-content h1 { font-size: 2.5rem; }
+            
+            .emotional-grid, .emotional-section.reverse .emotional-grid { 
+                grid-template-columns: 1fr; 
+                gap: 50px;
+                direction: ltr;
+            }
+            .emotional-image::before { display: none; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .protection-grid { grid-template-columns: repeat(2, 1fr); }
+            .depoimentos-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        /* Mobile Grande (600px - 767px) */
+        @media (max-width: 767px) and (min-width: 600px) {
+            .nav-links {
+                position: fixed; top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px);
+                background-color: var(--white); flex-direction: column; justify-content: center;
+                transition: left 0.3s ease;
+            }
+            .nav-links.active { left: 0; }
+            .mobile-menu-btn { display: block; }
+            section { padding: 70px 0; }
+            .logo img { height: 45px; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .section-title h2 { font-size: 2rem; }
+            .emotional-content h2 { font-size: 2rem; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .protection-grid { grid-template-columns: 1fr; }
+            .depoimentos-grid { grid-template-columns: 1fr; }
+            .cta-final h2 { font-size: 2.2rem; }
+        }
+        
+        /* Mobile (< 600px) */
+        @media (max-width: 599px) {
+            .nav-links {
+                position: fixed; top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px);
+                background-color: var(--white); flex-direction: column; justify-content: center;
+                transition: left 0.3s ease;
+            }
+            .nav-links.active { left: 0; }
+            .mobile-menu-btn { display: block; }
+            section { padding: 60px 0; }
+            .logo img { height: 40px; }
+            .hero { padding: 100px 0 50px; }
+            .hero-content h1 { font-size: 1.9rem; }
+            .hero-content > p { font-size: 1.05rem; }
+            .hero-bullets { padding: 20px; }
+            .hero-bullets li { font-size: 0.95rem; }
+            .section-title h2 { font-size: 1.7rem; }
+            .section-title p { font-size: 1rem; }
+            .emotional-content h2 { font-size: 1.7rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .protection-grid { grid-template-columns: 1fr; }
+            .depoimentos-grid { grid-template-columns: 1fr; }
+            .cta-final h2 { font-size: 1.8rem; }
+            .cta-final > p { font-size: 1.05rem; }
+            .btn-large { padding: 16px 30px; font-size: 1rem; }
+            .hero-form { padding: 25px; }
+            .hero-form h3 { font-size: 1.3rem; }
+        }
+        
+        /* Mobile Muito Pequeno (< 400px) */
+        @media (max-width: 399px) {
+            .hero-content h1 { font-size: 1.6rem; }
+            .hero-form { padding: 20px; }
+            .btn { padding: 14px 24px; font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="https://rotachamine.com.br/" class="logo">
+                    <img src="logo-rota-chamine.png" alt="Rota Chaminé Corretora de Seguros">
+                </a>
+                <div class="mobile-menu-btn" onclick="toggleMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#protecao" onclick="toggleMenu()">Proteção</a></li>
+                    <li><a href="#momentos" onclick="toggleMenu()">Momentos</a></li>
+                    <li><a href="#beneficios" onclick="toggleMenu()">Vantagens</a></li>
+                    <li><a href="#depoimentos" onclick="toggleMenu()">Depoimentos</a></li>
+                    <li><a href="#cotacao" class="btn" style="padding: 10px 20px; font-size: 0.9rem;" onclick="toggleMenu()">Cotar Agora</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>Proteja os momentos que fazem a vida valer a pena</h1>
+                    <p>Porque o que realmente importa são as pessoas que você ama e os momentos que vocês compartilham juntos. Cuide do hoje, proteja o amanhã.</p>
+                    
+                    <ul class="hero-bullets">
+                        <li><i class="fa-solid fa-heart"></i> Proteção completa para sua família</li>
+                        <li><i class="fa-solid fa-hand-holding-heart"></i> Coberturas a partir de R$ 30/mês</li>
+                        <li><i class="fa-solid fa-users"></i> Atuação em todo o Brasil</li>
+                        <li><i class="fa-solid fa-shield-heart"></i> 10 anos cuidando de quem constrói</li>
+                    </ul>
+                    
+                    <a href="#cotacao" class="btn btn-large">QUERO PROTEGER QUEM AMO</a>
+                </div>
+                
+                <div class="hero-form-wrapper" id="cotacao">
+                    <div class="hero-form">
+                        <h3>Solicite sua cotação gratuita</h3>
+                        <p>Preencha os dados e receba propostas personalizadas</p>
+                        <form id="leadForm" onsubmit="sendToWhatsApp(event)">
+                            <div class="form-group">
+                                <label for="nome">Nome completo *</label>
+                                <input type="text" id="nome" required placeholder="Seu nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="whatsapp">WhatsApp *</label>
+                                <input type="tel" id="whatsapp" required placeholder="(XX) XXXXX-XXXX">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" placeholder="seu@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="perfil">Tipo de Seguro *</label>
+                                <select id="perfil" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="Pessoa Física">Para mim e minha família</option>
+                                    <option value="Pessoa Jurídica">Para minha empresa</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-full">QUERO MINHA COTAÇÃO AGORA</button>
+                            <p class="form-note"><i class="fa-solid fa-lock"></i> Seus dados estão 100% seguros</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO EMOCIONAL 1 -->
+    <section class="emotional-section" id="protecao">
+        <div class="container">
+            <div class="emotional-grid">
+                <div class="emotional-image">
+                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Família feliz aproveitando tempo juntos">
+                </div>
+                <div class="emotional-content">
+                    <h2>Viva cada momento com quem você ama, sem preocupações</h2>
+                    <p>O seguro de vida vai muito além de uma apólice. É a certeza de que, não importa o que aconteça, as pessoas que você mais ama terão a segurança e a tranquilidade que merecem.</p>
+                    <p>É sobre poder abraçar seus filhos hoje sabendo que o futuro deles está protegido. É sobre construir memórias inesquecíveis com a tranquilidade de quem fez a escolha certa.</p>
+                    
+                    <ul class="emotional-benefits">
+                        <li><i class="fa-solid fa-check"></i><span>Proteção financeira para manter o padrão de vida da sua família</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Coberturas que podem ser usadas em vida (doenças graves, invalidez)</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Indenização isenta de Imposto de Renda e sem burocracia</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Planos que cabem no seu orçamento, a partir de R$ 30/mês</span></li>
+                    </ul>
+                    
+                    <a href="#cotacao" class="btn" style="margin-top: 30px;">PROTEGER MINHA FAMÍLIA</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA DE MOMENTOS -->
+    <section class="moments-gallery" id="momentos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Momentos que valem a pena proteger</h2>
+                <p>Cada sorriso, cada abraço, cada conquista. É por isso que trabalhamos todos os dias.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Família reunida">
+                    <div class="gallery-overlay"><p>Tempo em família</p></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516627135342-79f494f41994?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Casal feliz">
+                    <div class="gallery-overlay"><p>Amor e companheirismo</p></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1485546784815-e380f3297414?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Crianças brincando">
+                    <div class="gallery-overlay"><p>Futuro protegido</p></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Avós com netos">
+                    <div class="gallery-overlay"><p>Legado de amor</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO EMOCIONAL 2 (INVERTIDA) -->
+    <section class="emotional-section reverse">
+        <div class="container">
+            <div class="emotional-grid">
+                <div class="emotional-image">
+                    <img src="https://images.unsplash.com/photo-1573497019948-312a91818079?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mulher profissional realizada">
+                </div>
+                <div class="emotional-content">
+                    <h2>Proteção que se adapta à sua vida e aos seus sonhos</h2>
+                    <p>Seja você um profissional dedicado, um pai presente, um empreendedor sonhador ou alguém que está construindo seu legado - temos a proteção ideal para seu momento de vida.</p>
+                    <p>Trabalhamos com as 6 maiores seguradoras do Brasil para encontrar exatamente o que você precisa, sem pagar mais por isso.</p>
+                    
+                    <ul class="emotional-benefits">
+                        <li><i class="fa-solid fa-check"></i><span>Comparativo entre Porto, Mapfre, Sompo, SulAmérica, Prudential e Yelum</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Coberturas personalizáveis conforme sua realidade</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Atendimento humanizado por quem entende do assunto</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Suporte completo do início ao fim (e além)</span></li>
+                    </ul>
+                    
+                    <a href="#cotacao" class="btn" style="margin-top: 30px;">CONHECER OPÇÕES</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARDS DE PROTEÇÃO -->
+    <section class="protection-cards">
+        <div class="container">
+            <div class="section-title">
+                <h2>Proteção para cada fase da sua vida</h2>
+                <p>Escolha a modalidade que melhor se encaixa no seu momento</p>
+            </div>
+            
+            <div class="protection-grid">
+                <div class="protection-card">
+                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Vida Individual">
+                    <div class="protection-content">
+                        <h3>Vida Individual</h3>
+                        <p>Proteção personalizada para você e quem você ama, com coberturas flexíveis que crescem com você.</p>
+                        <a href="#cotacao">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="protection-card">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Vida em Grupo">
+                    <div class="protection-content">
+                        <h3>Vida em Grupo (PJ)</h3>
+                        <p>Proteja seus colaboradores e fortaleça sua empresa com benefícios que fazem a diferença.</p>
+                        <a href="#cotacao">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="protection-card">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Doenças Graves">
+                    <div class="protection-content">
+                        <h3>Doenças Graves</h3>
+                        <p>Cobertura antecipada para diagnóstico de câncer, infarto, AVC e outras patologias.</p>
+                        <a href="#cotacao">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POR QUE ESCOLHER -->
+    <section class="por-que" id="beneficios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por que famílias escolhem a Rota Chaminé</h2>
+                <p>Mais do que seguros, construímos relacionamentos baseados em confiança e cuidado</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fa-solid fa-heart"></i>
+                    <h3>Atendimento Humanizado</h3>
+                    <p>10 anos protegendo quem constrói. Nossa equipe entende que por trás de cada apólice existe uma família, sonhos e histórias.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                    <h3>Cotação Comparativa Real</h3>
+                    <p>Trabalhamos com as 6 maiores seguradoras. Você recebe propostas lado a lado para escolher a melhor opção.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    <h3>Proteção para Usar em Vida</h3>
+                    <p>Muitos planos cobrem diagnóstico de doenças graves e invalidez, permitindo que você mesmo use o benefício quando precisar.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-money-bill-transfer"></i>
+                    <h3>Liberdade Total</h3>
+                    <p>A indenização é isenta de IR e os beneficiários decidem como usar: quitar dívidas, manter o padrão de vida ou investir.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3>Emissão Rápida e Digital</h3>
+                    <p>Processo desburocratizado. Em muitos casos, a apólice é emitida no mesmo dia, com envio digital e total validade.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Suporte no Sinistro</h3>
+                    <p>Nosso compromisso não termina na venda. Estamos ao seu lado no momento mais importante, com agilidade e respeito.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="depoimentos" id="depoimentos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Histórias de quem confiou na gente</h2>
+                <p>Conheça famílias que hoje vivem mais tranquilas</p>
+            </div>
+            
+            <div class="depoimentos-grid">
+                <div class="depoimento-card">
+                    <div class="depoimento-header">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80" alt="Carlos" class="depoimento-avatar">
+                        <div class="depoimento-info">
+                            <h4>Carlos Mendes</h4>
+                            <p>Empresário - Joinville/SC</p>
+                        </div>
+                    </div>
+                    <div class="depoimento-text">
+                        "Quando contratei o seguro de vida para minha empresa, nunca imaginei que um dia precisaria usar. Quando fui diagnosticado com câncer, a indenização me permitiu focar apenas no tratamento, sem me preocupar com as contas. Hoje estou curado e minha família passou por isso com muito mais tranquilidade."
+                    </div>
+                </div>
+                
+                <div class="depoimento-card">
+                    <div class="depoimento-header">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80" alt="Ana Paula" class="depoimento-avatar">
+                        <div class="depoimento-info">
+                            <h4>Ana Paula Souza</h4>
+                            <p>Mãe e profissional liberal</p>
+                        </div>
+                    </div>
+                    <div class="depoimento-text">
+                        "Como mãe solo, minha maior preocupação era o futuro dos meus filhos. A Rota Chaminé me ajudou a encontrar um plano que cabe no meu orçamento e me dá a certeza de que, aconteça o que for, meus filhos terão suporte para estudar e realizar seus sonhos."
+                    </div>
+                </div>
+                
+                <div class="depoimento-card">
+                    <div class="depoimento-header">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80" alt="Roberto" class="depoimento-avatar">
+                        <div class="depoimento-info">
+                            <h4>Roberto Almeida</h4>
+                            <p>Aposentado</p>
+                        </div>
+                    </div>
+                    <div class="depoimento-text">
+                        "Contratei há 15 anos e hoje vejo que foi a melhor decisão. Minha esposa e eu podemos aproveitar nossa aposentadoria sabendo que deixaremos um legado para nossos netos. O atendimento da Rota Chaminé sempre foi impecável, nos orientando em cada fase da vida."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="como-funciona" id="como-funciona">
+        <div class="container">
+            <div class="section-title">
+                <h2>Proteger quem você ama é simples</h2>
+                <p>Em poucos passos, você garante tranquilidade para sua família</p>
+            </div>
+            <div class="passos-grid">
+                <div class="passo">
+                    <div class="passo-numero">1</div>
+                    <h3>Solicite a cotação</h3>
+                    <p>Preencha o formulário com seus dados e o tipo de proteção que busca.</p>
+                </div>
+                <div class="passo">
+                    <div class="passo-numero">2</div>
+                    <h3>Análise personalizada</h3>
+                    <p>Nossa equipe analisa seu perfil e prepara as melhores propostas.</p>
+                </div>
+                <div class="passo">
+                    <div class="passo-numero">3</div>
+                    <h3>Escolha a melhor</h3>
+                    <p>Receba opções claras e escolha a que melhor se encaixa na sua vida.</p>
+                </div>
+                <div class="passo">
+                    <div class="passo-numero">4</div>
+                    <h3>Proteção ativada</h3>
+                    <p>Apólice emitida digitalmente. Nosso cuidado com você começa agora.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dúvidas frequentes</h2>
+                <p>Estamos aqui para ajudar você a entender tudo sobre seguro de vida</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        O que é Seguro de Vida e por que preciso de um?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O Seguro de Vida é uma proteção financeira para você e sua família. Ele garante o pagamento de um capital aos beneficiários em caso de falecimento, ou a você mesmo em casos de invalidez ou doenças graves. É preciso porque protege quem você ama contra imprevistos e garante que seus sonhos e conquistas sejam preservados.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Qual a diferença entre Seguro de Vida e Previdência?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A Previdência foca em acumular capital para o futuro (aposentadoria). O Seguro de Vida foca em proteção imediata contra riscos (morte, invalidez, doenças), com custo muito menor para um capital de proteção alto. São complementares!</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Quanto custa um Seguro de Vida?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O valor varia conforme idade, profissão, hábitos, valor de cobertura e seguradora. Existem planos individuais a partir de R$ 30,00 mensais. Fazemos cotações sem compromisso para encontrar um plano que caiba no seu orçamento.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Posso usar o seguro em vida?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! A maioria dos planos modernos possui coberturas por invalidez, doenças graves e auxílio-funeral que podem ser acionadas pelo próprio segurado enquanto estiver vivo.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Os beneficiários podem usar o dinheiro como quiserem?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! A indenização é isenta de Imposto de Renda e não entra em inventário. Os beneficiários têm liberdade total para usar o valor como acharem melhor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final">
+        <div class="container">
+            <h2>Cada momento com quem você ama é precioso</h2>
+            <p>Não espere o imprevisto chegar. Proteja hoje os momentos que fazem sua vida valer a pena. Sua família merece essa tranquilidade.</p>
+            <a href="#cotacao" class="btn btn-large" style="background-color: var(--accent); font-size: 1.3rem;">QUERO PROTEGER QUEM AMO AGORA</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="logo-rota-chamine.png" alt="Rota Chaminé" style="height: 60px; margin-bottom: 20px; filter: brightness(0) invert(1);">
+                    <p>Protegemos quem constrói a vida com o próprio esforço. Há 10 anos cuidando de famílias e empresas com transparência, cuidado e profissionalismo.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="https://rotachamine.com.br/">Página Inicial</a></li>
+                        <li><a href="#protecao">Nossa Proteção</a></li>
+                        <li><a href="#momentos">Momentos</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><i class="fa-brands fa-whatsapp"></i> (47) 99953-6461</li>
+                        <li><i class="fa-solid fa-envelope"></i> contato@rotachamine.com.br</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Joinville - SC e todo Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Rota Chaminé Corretora de Seguros. Todos os direitos reservados. SUSEP: 202052711</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/5547999536461?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Seguro%20de%20Vida%20da%20Rota%20Chaminé." class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(faq => faq.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
+        }
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const email = document.getElementById('email').value;
+            const perfil = document.getElementById('perfil').value;
+            const numeroWhatsApp = "5547999536461"; // SUBSTITUA PELO NÚMERO REAL
+            const mensagem = `Olá! Me chamo *${nome}*.\nGostaria de uma cotação de Seguro de Vida.\n\n*Perfil:* ${perfil}\n*WhatsApp:* ${whatsapp}\n*E-mail:* ${email}\n\nAguardo o contato da equipe Rota Chaminé.`;
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+            document.getElementById('leadForm').reset();
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
